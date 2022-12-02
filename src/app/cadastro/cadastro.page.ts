@@ -15,12 +15,15 @@ export class CadastroPage implements OnInit {
       nome: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       cpf: ['', Validators.compose([Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      senha: ['',],
-      confirmarsenha: ['',],
+      senha: ['',  Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)])],
+      confirmaSenha: ['',   Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)])],
     })
   }
 
   ngOnInit() {
   }
 
+  salvarCadastro(){
+    console.log('Formulário: ', this.formCadastro.valid);
+  }
 }
